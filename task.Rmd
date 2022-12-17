@@ -15,10 +15,6 @@ x1 <- 3.14; 2.71; 0; 13
 x1
 ```
 ```{r}
-x2 <- c(TRUE, 100)
-x2
-```
-```{r}
 x3 <- rep(TRUE, 100)
 x3
 ```
@@ -32,6 +28,12 @@ x = matrix(
 x
 ```
 ```{r}
+char_var <- "hello world"
+num_var <- 3.14
+int_var <- 5
+complex_var <-5+4i
+logical_var <- TRUE
+
 list_var <- list(char_var, num_var, int_var, complex_var, logical_var)
 list_var
 ```
@@ -45,8 +47,6 @@ data <- data.frame(
   name = c("Anna", "Bruno", "Charlie", "Diana", "Erika", "Felix", "Gusto", "Hana", "Ivan", "Julia"),
   age = c(58, 25, 19, 24, 15, 43, 36, 21, 45, 38)
 )
-```
-```{r}
 colnames(data)<- c("ID", "Name", "Age")
 data
 ```
@@ -59,52 +59,16 @@ airquality |>
   summarise(mean_temp = mean(Temp)) |> 
   filter(mean_temp == max(mean_temp))
 ```
-
-
 ```{r}
-airquality <- read.csv("airquality.csv")
+#Task2
+library(dplyr)
 colnames(airquality)
 rownames(airquality)
 head(airquality, 6)
 nrow(airquality)
 tail(airquality, 6)
-sum(is.na(airquality$0zone))
-mean(airquality$0zone, na.rm = TRUE)
-subset(airquality, 0zone>31&Temp>90)
-```
-
-```{r}
-#Task2
-library(dplyr)
-
-#1
-airquality |> 
-  colnames()
-  
-#2
-airquality |> 
-  rownames()
-
-#3
-airquality |> 
-slice(1:6)
-
-#4
-airquality |>
-nrow()
-Adriana
-Adriana Aďa Malatincová
-#5
-airquality |>
-filter(is.na(Ozone)) |>
-nrow()
-
-
-#6
-airquality |>
-filter(Ozone > 31 & Temp > 90) |>
-print()
-
-
+sum(is.na(airquality$Ozone))
+mean(airquality$Ozone, na.rm = TRUE)
+subset(airquality, Ozone > 31 & Temp > 90)
 ```
 
